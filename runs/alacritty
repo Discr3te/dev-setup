@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+install_alacritty() {
+  local dependencies=(
+    "ttf-jetbrains-mono-nerd"
+  )
+  sudo pacman -S --noconfirm --needed alacritty "${dependencies[@]}"
+}
+
+install_alacritty

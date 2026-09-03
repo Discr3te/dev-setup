@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+sudo pacman -Syu --noconfirm --neeeded git
+
+git clone --recurse-submodules https://github.com/Discr3te/dev_setup.git "$HOME/dev_setup"
+
+pushd "$HOME/dev_setup" || exit
+./run
+popd || exit

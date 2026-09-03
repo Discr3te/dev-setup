@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+install_aur_helper() {
+  local dependencies=(
+    "git"
+    "base-devel"
+  )
+  sudo pacman -S --noconfirm --needed "${dependencies[@]}"
+
+  local downloads_folder="$HOME/Downloads"
+  mkdir -p "$downloads_folder"
+  git clone https://aur.archlinux.org/yay.git "$downloads_folder/yay"
+  pushd "$downloads_folder/yay" || exit
+  makepkg -si
+  popd || exit
+}
+
+install_aur_helper

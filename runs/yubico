@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+install_yubico() {
+  local dependencies=(
+    "pam-u2f"
+    "libfido2"
+    "ykman"
+    "yubikey-full-disk-encryption"
+  )
+  local aur_dependencies=("yubico-authenticator")
+
+  if ! command yay --version &>/dev/null; then
+    echo "yay is not installed, AUR packages will no be installed"
+  else
+    for package in "${aur_dependencies[@]}"; do
+      if ! yay -Q "$package" &>/dev/null; then
+        aur_dependencies+=("$package")
+      fi
+    done
+    yay -S "${aur_dependencies[@]}"
+  fi
+
+  sudo pacman -S --noconfirm --needed "${dependencies[@]}"
+}
+
+install_yubico

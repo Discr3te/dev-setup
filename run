@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+. "$script_dir/local/bin/update_mirrors"
+
+for script in "$script_dir/runs"/*; do
+  [ -f "$script" ] && [ -x "$script" ] && bash "$script"
+done
+
+config="$HOME/.config"
+mkdir -p "$config"
+
+ln -s "$script_dir/dotfiles/alacritty" "$config/alacritty"
+
+ln -s "$script_dir/dotfiles/fuzzel" "$config/fuzzel"
+ln -s "$script_dir/dotfiles/git" "$config/git"
+ln -s "$script_dir/dotfiles/hypr" "$config/hypr"
+ln -s "$script_dir/dotfiles/mako" "$config/mako"
+ln -s "$script_dir/dotfiles/nvim" "$config/nvim"
+ln -s "$script_dir/dotfiles/tmux" "$config/tmux"
+ln -s "$script_dir/dotfiles/wallpapers" "$config/wallpapers"
+ln -s "$script_dir/dotfiles/waybar" "$config/waybar"
+ln -s "$script_dir/dotfiles/wlogout" "$config/wlogout"
+ln -s "$script_dir/dotfiles/zsh" "$config/zsh"
+ln -s "$script_dir/dotfiles/zsh" "$config/zsh"

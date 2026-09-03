@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+install_hypr() {
+  local hypr_list=(
+    "hyprland"
+    "hypridle"
+    "hyprlock"
+    "hyprpaper"
+  )
+  local dependencies=(
+    "wayland"
+    "wayland-protocols"
+    "xorg-xwayland"
+    "wlogout"
+  )
+  local packages=("${hypr_list[@]}" "${dependencies[@]}")
+
+  sudo pacman -S --noconfirm --needed "${packages[@]}"
+}
+
+install_hypr
