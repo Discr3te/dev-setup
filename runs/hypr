@@ -11,9 +11,22 @@ install_hypr() {
     "wayland"
     "wayland-protocols"
     "xorg-xwayland"
-    "wlogout"
   )
   local packages=("${hypr_list[@]}" "${dependencies[@]}")
+
+  local aur_dependencies_list=("wlogout")
+  local aur_dependencies=()
+
+  if ! command yay --version &>/dev/null; then
+    echo "yay is not installed, AUR packages will no be installed"
+  else
+    for package in "${aur_dependencies_list[@]}"; do
+      if ! yay -Q "$package" &>/dev/null; then
+        aur_dependencies+=("$package")
+      fi
+    done
+    yay -S "${aur_dependencies[@]}"
+  fi
 
   sudo pacman -S --noconfirm --needed "${packages[@]}"
 }
