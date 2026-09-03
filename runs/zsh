@@ -2,7 +2,7 @@
 
 sudo pacman -S --noconfirm --needed zsh
 hash -r
-sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
 sudo tee -a /etc/zsh/zshenv > /dev/null << 'EOF'
 if [[ -z $XDG_CONFIG_HOME ]]; then
