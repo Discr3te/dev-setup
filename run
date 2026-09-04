@@ -23,3 +23,5 @@ ln -s "$script_dir/dotfiles/waybar" "$config/waybar"
 ln -s "$script_dir/dotfiles/wlogout" "$config/wlogout"
 ln -s "$script_dir/dotfiles/zsh" "$config/zsh"
 ln -s "$script_dir/dotfiles/zsh" "$config/zsh"
+
+reboot
