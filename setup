@@ -5,9 +5,5 @@ sudo pacman -Syu --noconfirm --needed git
 git clone --recurse-submodules https://github.com/Discr3te/dev-setup.git "$HOME/dev-setup"
 
 pushd "$HOME/dev-setup" || exit
-
-echo "whoami"
-whoami
-sleep 20
 ./run
 popd || exit

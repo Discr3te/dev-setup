@@ -2,11 +2,15 @@
 
 echo "whoami"
 whoami
-sleep 20
+sleep 10
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-
+echo "whoami"
+whoami
+sleep 10
 . "$script_dir/local/bin/update_mirrors"
-
+echo "whoami"
+whoami
+sleep 10
 for script in "$script_dir/runs"/*; do
   [ -f "$script" ] && [ -x "$script" ] && bash "$script"
 done
