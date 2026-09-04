@@ -12,8 +12,11 @@ install_aur_helper() {
   mkdir -p "$downloads_folder"
   git clone https://aur.archlinux.org/yay.git "$downloads_folder/yay"
   pushd "$downloads_folder/yay" || exit
-
+  echo "Downloading yay now..."
+  sleep 15
   makepkg -si
+  echo "Finished Downloading yay..."
+  sleep 15
   popd || exit
 }
 
