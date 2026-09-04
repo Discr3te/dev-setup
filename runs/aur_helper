@@ -4,6 +4,7 @@ install_aur_helper() {
   local dependencies=(
     "git"
     "base-devel"
+    "go"
   )
   sudo pacman -S --noconfirm --needed "${dependencies[@]}"
 
@@ -11,6 +12,7 @@ install_aur_helper() {
   mkdir -p "$downloads_folder"
   git clone https://aur.archlinux.org/yay.git "$downloads_folder/yay"
   pushd "$downloads_folder/yay" || exit
+
   makepkg -si
   popd || exit
 }
