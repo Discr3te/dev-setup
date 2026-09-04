@@ -25,7 +25,16 @@ install_hypr() {
         aur_dependencies+=("$package")
       fi
     done
-    yay -S "${aur_dependencies[@]}"
+    local yay_opts=(
+      -S
+      --noconfirm
+      --answerclean None
+      --answerupgrade None
+      --answerdiff None # Unsafe to set it to None. Change later
+      --answeredit None # Unsafe to set it to None. Change later
+    )
+
+    yay "${yay_opts[@]}" "${aur_dependencies[@]}"
   fi
 
   sudo pacman -S --noconfirm --needed "${packages[@]}"

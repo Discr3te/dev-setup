@@ -2,10 +2,7 @@
 
 sudo pacman -S --noconfirm --needed zsh
 hash -r
-echo "ID"
-id
-sleep 10
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 sudo tee -a /etc/zsh/zshenv > /dev/null << 'EOF'
 if [[ -z $XDG_CONFIG_HOME ]]; then
