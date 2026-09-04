@@ -2,14 +2,14 @@
 country=US
 protocol=https
 
-if [ "$EUID" -ne 0 ]; then
-  echo "ERROR: Requires root privilege. Restarting with sudo..."
-  exec sudo "$0" "$@"
-fi
+# if [ "$EUID" -ne 0 ]; then
+#   echo "ERROR: Requires root privilege. Restarting with sudo..."
+#   exec sudo "$0" "$@"
+# fi
 
 if ! command -v rankmirrors &>/dev/null; then
   echo "rankmirrors is not installed, installing now:"
-  pacman -S --noconfirm pacman-contrib
+  sudo pacman -S --noconfirm pacman-contrib
 fi
 
 mirrorlist=/etc/pacman.d/mirrorlist
@@ -17,19 +17,19 @@ new_mirrorlist=/etc/pacman.d/mirrorlist.new
 backup_mirrorlist=/etc/pacman.d/mirrorlist.bk
 
 if [ -f "$backup_mirrorlist" ]; then
-  rm -rf $backup_mirrorlist
+  sudo rm -rf $backup_mirrorlist
 fi
 
 if [ -f "$mirrorlist" ]; then
-  mv $mirrorlist $backup_mirrorlist
+  sudo mv $mirrorlist $backup_mirrorlist
 fi
 
 echo "Downloading new mirrorlist"
-curl -o $new_mirrorlist "https://archlinux.org/mirrorlist/?country=$country&protocol=$protocol&use_mirror_status=on"
-sed -i 's/^# *Server/Server/' $new_mirrorlist
+sudo curl -o $new_mirrorlist "https://archlinux.org/mirrorlist/?country=$country&protocol=$protocol&use_mirror_status=on"
+sudo sed -i 's/^# *Server/Server/' $new_mirrorlist
 
 echo "Ranking mirrorlist, this will take a few minutes..."
-rankmirrors -n 5 $new_mirrorlist >$mirrorlist
+sudo rankmirrors -n 5 $new_mirrorlist | sudo tee $mirrorlist >/dev/null
 
-eccho "Finished ranking mirrorlist."
-rm -rf $new_mirrorlist
+echo "Finished ranking mirrorlist."
+sudo rm -rf $new_mirrorlist
