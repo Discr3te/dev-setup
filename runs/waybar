@@ -35,7 +35,7 @@ install_waybar() {
   local downloads_folder="$HOME/Downloads"
   git clone https://github.com/Alexays/Waybar "$downloads_folder/waybar"
   pushd "$downloads_folder/waybar" || exit
-  meson setup build -Drfkill=enabled
+  meson setup build -Drfkill=enabled -Dcava=disabled
   ninja -C build
   sudo ninja -C build install
   popd || exit
