@@ -5,5 +5,12 @@ sudo pacman -Syu --noconfirm --needed git
 git clone --recurse-submodules https://github.com/Discr3te/dev-setup.git "$HOME/dev-setup"
 
 pushd "$HOME/dev-setup" || exit
+echo "This is the working directory:"
+pwd
+sleep 4
+echo "running ./run now"
+sleep 4
 ./run
+echo "./run popd now"
+sleep 4
 popd || exit
