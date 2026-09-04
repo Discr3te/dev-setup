@@ -35,9 +35,21 @@ install_waybar() {
   local downloads_folder="$HOME/Downloads"
   git clone https://github.com/Alexays/Waybar "$downloads_folder/waybar"
   pushd "$downloads_folder/waybar" || exit
+  echo "meson setup build -Drfkill=enabled START"
+  sleep 10
   meson setup build -Drfkill=enabled
+  echo "meson setup build -Drfkill=enabled FINISHED"
+  sleep 10
+  echo "ninja -C build START"
+  sleep 10
   ninja -C build
+  echo "ninja -C build FINISHED"
+  sleep 10
+  echo "ninja -C build install START"
+  sleep 10
   ninja -C build install
+  echo " ninja -C build install FINISHED"
+  sleep 10
   popd || exit
 }
 
