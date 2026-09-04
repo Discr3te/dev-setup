@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
+echo "whoami"
+whoami
+sleep 20
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
 . "$script_dir/local/bin/update_mirrors"
 
 for script in "$script_dir/runs"/*; do
-  echo "whoami"
-  whoami
-  sleep 20
   [ -f "$script" ] && [ -x "$script" ] && bash "$script"
 done
 
