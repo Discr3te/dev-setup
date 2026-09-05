@@ -11,6 +11,7 @@ install_apps() {
     "btop"
     "rocm-smi-lib" # btop amd gpu
     "powertop"
+    "tlp"
     "mako"
     "nautilus"
     "fuzzel"
