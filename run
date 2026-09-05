@@ -10,6 +10,7 @@ done
 
 config="$HOME/.config"
 mkdir -p "$config"
+mkdir -p "$HOME/.local"
 
 ln -s "$script_dir/dotfiles/alacritty" "$config/alacritty"
 ln -s "$script_dir/dotfiles/fuzzel" "$config/fuzzel"
