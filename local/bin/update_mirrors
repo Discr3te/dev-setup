@@ -2,15 +2,7 @@
 country=US
 protocol=https
 
-# if [ "$EUID" -ne 0 ]; then
-#   echo "ERROR: Requires root privilege. Restarting with sudo..."
-#   exec sudo "$0" "$@"
-# fi
-
-if ! command -v rankmirrors &>/dev/null; then
-  echo "rankmirrors is not installed, installing now:"
-  sudo pacman -S --noconfirm pacman-contrib
-fi
+sudo pacman -S --noconfirm --needed pacman-contrib
 
 mirrorlist=/etc/pacman.d/mirrorlist
 new_mirrorlist=/etc/pacman.d/mirrorlist.new

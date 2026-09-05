@@ -10,6 +10,9 @@ done
 
 config="$HOME/.config"
 mkdir -p "$config"
+mkdir -p "$HOME/.local/bin"
+
+mv "$script_dir" "$HOME/Projects/"
 
 ln -s "$script_dir/dotfiles/alacritty" "$config/alacritty"
 ln -s "$script_dir/dotfiles/fuzzel" "$config/fuzzel"
@@ -22,6 +25,6 @@ ln -s "$script_dir/dotfiles/wallpapers" "$config/wallpapers"
 ln -s "$script_dir/dotfiles/waybar" "$config/waybar"
 ln -s "$script_dir/dotfiles/wlogout" "$config/wlogout"
 ln -s "$script_dir/dotfiles/zsh" "$config/zsh"
-ln -s "$script_dir/dotfiles/zsh" "$config/zsh"
+ln -s "$script_dir/local/bin" "$HOME/.local/bin"
 
 reboot

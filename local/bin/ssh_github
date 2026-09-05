@@ -1,38 +1,8 @@
 #!/usr/bin/env bash
-dependencies=(
-  "git"     # Package: Git
-  "openssh" # Package: openssh
-)
-options=(
-  "Create new keys"
-  "Download existing keys from your hardware key"
-  "Quit"
-)
-new_key_opts=(
-  "Create a new git authentication key"
-  "Creat a new git signing key"
-  "Create both a new git signing key and authentication key"
-  "Go Back"
-  "Quit"
-)
-ssh_config="$HOME"/.config/ssh
+
 key_type_auth=auth
 key_type_signing=signing
-
-check_dependencies() {
-  local download_list=()
-  echo "Checking for missing dependencies.."
-  for package in "${dependencies[@]}"; do
-    if ! pacman -Q "$package" &>/dev/null; then
-      download_list+=("$package")
-    fi
-  done
-
-  if [ ${#download_list[@]} -ge 1 ]; then
-    echo "Downloading missing dependencies"
-    sudo pacman -Syu "${download_list[@]}" --noconfirm
-  fi
-}
+ssh_config="$HOME"/.config/ssh
 
 create_keys() {
   local key_type=$1
@@ -62,6 +32,19 @@ write_allowed_signers() {
 }
 
 select_choice() {
+  local options=(
+    "Create new keys"
+    "Download existing keys from your hardware key"
+    "Quit"
+  )
+  local new_key_opts=(
+    "Create a new git authentication key"
+    "Creat a new git signing key"
+    "Create both a new git signing key and authentication key"
+    "Go Back"
+    "Quit"
+  )
+
   clear
   PS3="What would you like to do: "
   select choice in "${options[@]}"; do
@@ -127,6 +110,7 @@ select_choice() {
     "Download existing keys from your hardware key")
       pushd "$ssh_config" || exit
       ssh-keygen -K
+      write_allowed_signers
       popd || exit
       clear
       printf "%s\n" "Your existing keys have successfully been downloaded to: $ssh_config."
@@ -143,6 +127,6 @@ select_choice() {
   done
 }
 
-check_dependencies
+sudo pacman -Syu --noconfirm --needed git openssh
 mkdir -p "$ssh_config"
 select_choice

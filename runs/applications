@@ -9,6 +9,7 @@ install_apps() {
     "satty"         # screenshot
     "spotify-launcher"
     "btop"
+    "rocm-smi-lib" # btop amd gpu
     "powertop"
     "mako"
     "nautilus"
