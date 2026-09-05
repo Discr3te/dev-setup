@@ -12,8 +12,6 @@ config="$HOME/.config"
 mkdir -p "$config"
 mkdir -p "$HOME/.local/bin"
 
-mv "$script_dir" "$HOME/Projects/"
-
 ln -s "$script_dir/dotfiles/alacritty" "$config/alacritty"
 ln -s "$script_dir/dotfiles/fuzzel" "$config/fuzzel"
 ln -s "$script_dir/dotfiles/git" "$config/git"

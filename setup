@@ -2,8 +2,11 @@
 
 sudo pacman -Syu --noconfirm --needed git
 
-git clone --recurse-submodules https://github.com/Discr3te/dev-setup.git "$HOME/dev-setup"
+projects_dir="$HOME/Projects"
+mkdir -p "$projects_dir"
 
-pushd "$HOME/dev-setup" || exit
+git clone --recurse-submodules https://github.com/Discr3te/dev-setup.git "$projects_dir/dev-setup"
+
+pushd "$projects_dir/dev-setup" || exit
 ./run
 popd || exit
