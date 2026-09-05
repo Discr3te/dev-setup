@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+array_options=(
+  "Shutdown"
+  "Reboot"
+  "Sleep"
+  "Lock"
+)
+
+chosen=$(
+  printf "%b\n" "${array_options[@]}" | fuzzel --dmenu -p "Power Menu: "
+)
+
+case "$chosen" in
+Shutdown)
+  systemctl poweroff
+  ;;
+Reboot)
+  systemctl reboot
+  ;;
+Sleep)
+  systemctl suspend
+  ;;
+Lock)
+  hyprlock
+  ;;
+esac
