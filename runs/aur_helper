@@ -4,7 +4,6 @@ install_aur_helper() {
   local dependencies=(
     "git"
     "base-devel"
-    "go"
   )
   sudo pacman -S --noconfirm --needed "${dependencies[@]}"
 
@@ -14,7 +13,7 @@ install_aur_helper() {
   pushd "$downloads_folder/yay" || exit
   echo "Downloading yay now..."
   sleep 15
-  makepkg -si
+  makepkg -si --noconfirm
   echo "Finished Downloading yay..."
   sleep 15
   popd || exit
