@@ -7,8 +7,16 @@ array_options=(
   "Lock"
 )
 
+fuzzel_opts=(
+  --dmenu
+  -p "Power Menu: "
+  --lines=5
+  --width=20
+  --dpi-aware=yes
+)
+
 chosen=$(
-  printf "%b\n" "${array_options[@]}" | fuzzel --dmenu -p "Power Menu: "
+  printf "%b\n" "${array_options[@]}" | fuzzel "${fuzzel_opts[@]}"
 )
 
 case "$chosen" in
