@@ -43,7 +43,7 @@ else
   sudo sed -i '2i\auth    sufficient  pam_u2f.so cue' /etc/pam.d/sudo
   sudo sed -i '2i\auth       required   pam_u2f.so cue' /etc/pam.d/su
   sudo sed -i '2i\auth       required   pam_u2f.so cue' /etc/pam.d/su-l
-  sudo sed -i '2i\auth       required   pam_u2f.so cue' /etc/pam.d/login
+  sudo sed -i '$a auth       required     pam_u2f.so cue' /etc/pam.d/login
   # hyprlock
   sudo sed -i '$ s/^/#/' /etc/pam.d/hyprlock
   sudo sed -i '3i\auth        required    pam_u2f.so cue' /etc/pam.d/hyprlock
