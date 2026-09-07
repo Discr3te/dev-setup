@@ -17,7 +17,8 @@ if [ -f "$mirrorlist" ]; then
 fi
 
 echo "Downloading new mirrorlist"
-sudo curl -o $new_mirrorlist "https://archlinux.org/mirrorlist/?country=$country&protocol=$protocol&use_mirror_status=on"
+mirrorlist_url="https://archlinux.org/mirrorlist/?country=$country&protocol=$protocol&use_mirror_status=on"
+sudo curl -o $new_mirrorlist "$mirrorlist_url"
 sudo sed -i 's/^# *Server/Server/' $new_mirrorlist
 
 echo "Ranking mirrorlist, this will take a few minutes..."
