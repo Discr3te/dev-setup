@@ -15,3 +15,5 @@ fi
 EOF
 
 ln -s "$script_dir/dotfiles/zsh" "$config_dir/zsh"
+
+rm -rf "$HOME/.bash_logout" "$HOME/.bash_profile" "$HOME/.bashrc"
