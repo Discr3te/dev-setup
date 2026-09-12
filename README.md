@@ -9,7 +9,7 @@ a fresh OS install to a fully working setup in minutes
 Run this line on a fresh install:
 
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Discr3te/dev-setup/refs/heads/main/setup)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Discr3te/dev-setup/refs/heads/main/setup.sh)"
 ```
 
 After the script finishes:
