@@ -18,4 +18,4 @@ install_neovim() {
 
 install_neovim
 
-ln -s "$script_dir/dotfiles/nvim" "$config/nvim"
+ln -s "$script_dir/dotfiles/nvim" "$config_dir/nvim"

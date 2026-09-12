@@ -4,7 +4,7 @@ sudo pacman -S --noconfirm --needed zsh
 hash -r
 sudo chsh -s $(which zsh) $USER
 
-sudo tee -a /etc/zsh/zshenv > /dev/null << 'EOF'
+sudo tee -a /etc/zsh/zshenv >/dev/null <<'EOF'
 if [[ -z $XDG_CONFIG_HOME ]]; then
     export XDG_CONFIG_HOME="$HOME/.config"
 fi
@@ -14,4 +14,4 @@ if [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
 fi
 EOF
 
-ln -s "$script_dir/dotfiles/zsh" "$config/zsh"
+ln -s "$script_dir/dotfiles/zsh" "$config_dir/zsh"

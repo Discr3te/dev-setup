@@ -52,4 +52,4 @@ install_waybar() {
 
 install_waybar
 
-ln -s "$script_dir/dotfiles/waybar" "$config/waybar"
+ln -s "$script_dir/dotfiles/waybar" "$config_dir/waybar"

@@ -19,4 +19,4 @@ install_hypr() {
 
 install_hypr
 
-ln -s "$script_dir/dotfiles/hypr" "$config/hypr"
+ln -s "$script_dir/dotfiles/hypr" "$config_dir/hypr"

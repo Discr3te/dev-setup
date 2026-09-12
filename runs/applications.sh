@@ -25,6 +25,6 @@ install_apps() {
 
 install_apps
 
-ln -s "$script_dir/dotfiles/fuzzel" "$config/fuzzel"
-ln -s "$script_dir/dotfiles/mako" "$config/mako"
-# ln -s "$script_dir/dotfiles/wlogout" "$config/wlogout"
+ln -s "$script_dir/dotfiles/fuzzel" "$config_dir/fuzzel"
+ln -s "$script_dir/dotfiles/mako" "$config_dir/mako"
+# ln -s "$script_dir/dotfiles/wlogout" "$config_dir/wlogout"

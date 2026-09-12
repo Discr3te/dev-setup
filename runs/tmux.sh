@@ -2,4 +2,4 @@
 
 sudo pacman -S --noconfirm --needed tmux
 
-ln -s "$script_dir/dotfiles/tmux" "$config/tmux"
+ln -s "$script_dir/dotfiles/tmux" "$config_dir/tmux"
