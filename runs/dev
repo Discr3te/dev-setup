@@ -13,3 +13,5 @@ install_dev() {
 }
 
 install_dev
+
+ln -s "$script_dir/dotfiles/git" "$config/git"

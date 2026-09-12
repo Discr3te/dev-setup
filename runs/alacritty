@@ -8,3 +8,5 @@ install_alacritty() {
 }
 
 install_alacritty
+
+ln -s "$script_dir/dotfiles/alacritty" "$config/alacritty"
