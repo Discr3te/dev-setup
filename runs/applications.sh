@@ -18,6 +18,7 @@ install_apps() {
     "gimp"
     "libreoffice-still"
     "discord"
+    "freecad"
   )
 
   sudo pacman -S --noconfirm --needed "${application_list[@]}"
