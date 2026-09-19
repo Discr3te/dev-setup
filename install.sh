@@ -9,7 +9,7 @@ mkdir -p "$config_dir" "$HOME/.local"
 
 . "$script_dir/local/bin/update_mirrors"
 
-for script in "$script_dir/runs"/*; do
+for script in "$script_dir/install_scripts"/*; do
   [ -f "$script" ] && [ -x "$script" ] && bash "$script"
 done
 

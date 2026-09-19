@@ -8,5 +8,5 @@ mkdir -p "$projects_dir"
 git clone --recurse-submodules https://github.com/Discr3te/dev-setup.git "$projects_dir/dev-setup"
 
 pushd "$projects_dir/dev-setup" || exit
-./run.sh
+./install.sh
 popd || exit

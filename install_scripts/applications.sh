@@ -21,6 +21,30 @@ install_apps() {
     "spotify-launcher"
   )
 
+  local aur_application_list=("orca-slicer")
+  local aur_applications=()
+
+  if ! command yay --version &>/dev/null; then
+    echo "yay is not installed, installing now..."
+    bash ./aur_helper.sh
+  fi
+
+  for package in "${aur_application_list[@]}"; do
+    if ! yay -Q "$package" &>/dev/null; then
+      aur_applications+=("$package")
+    fi
+  done
+  local yay_opts=(
+    -S
+    --noconfirm
+    --answerclean None
+    --answerupgrade None
+    --answerdiff None # Unsafe to set it to None. Change later
+    --answeredit None # Unsafe to set it to None. Change later
+  )
+
+  yay "${yay_opts[@]}" "${aur_applications[@]}"
+
   sudo pacman -S --noconfirm --needed "${application_list[@]}"
 }
 
