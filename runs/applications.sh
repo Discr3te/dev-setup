@@ -3,22 +3,22 @@
 install_apps() {
   local application_list=(
     "firefox"
-    "pipewire-jack" # firefox
+    "pipewire-jack" # firefox dependency
     "grim"          # screenshot
     "slurp"         # screenshot
     "satty"         # screenshot
-    "spotify-launcher"
     "btop"
-    "rocm-smi-lib" # btop amd gpu
     "powertop"
-    "tlp"
-    "mako"
-    "nautilus"
-    "fuzzel"
-    "gimp"
-    "libreoffice-still"
+    "rocm-smi-lib"      # btop amd gpu
+    "tlp"               # laptop battery saveings
+    "mako"              # notification daemon
+    "nautilus"          # file manager
+    "fuzzel"            # application launcher
+    "gimp"              # drawing tool
+    "libreoffice-still" # office suite
+    "freecad"           # cad software
     "discord"
-    "freecad"
+    "spotify-launcher"
   )
 
   sudo pacman -S --noconfirm --needed "${application_list[@]}"
