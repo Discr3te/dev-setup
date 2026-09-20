@@ -24,10 +24,15 @@ install_apps() {
   local aur_application_list=("orca-slicer")
   local aur_applications=()
 
+  echo "application.sh check for yay"
+  sleep 10
   if ! command yay --version &>/dev/null; then
     echo "yay is not installed, installing now..."
+    sleep 10
     bash ./aur_helper.sh
   fi
+  echo "application.sh, yay installed, installing packages now"
+  sleep 10
 
   for package in "${aur_application_list[@]}"; do
     if ! yay -Q "$package" &>/dev/null; then
@@ -44,6 +49,8 @@ install_apps() {
   )
 
   yay "${yay_opts[@]}" "${aur_applications[@]}"
+  echo "finished installing packages"
+  sleep 10
 
   sudo pacman -S --noconfirm --needed "${application_list[@]}"
 }
