@@ -29,7 +29,7 @@ install_apps() {
   if ! command yay --version &>/dev/null; then
     echo "yay is not installed, installing now..."
     sleep 10
-    bash ./aur_helper.sh
+    bash "$script_dir/install_scripts/aur_helper.sh"
   fi
   echo "application.sh, yay installed, installing packages now"
   sleep 10
