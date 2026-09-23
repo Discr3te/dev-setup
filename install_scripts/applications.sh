@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+script_dir2="$(dirname "${BASH_SOURCE[0]}")"
+clear
+echo "$script_dir2"
+sleep 20
+
 source "$(dirname "${BASH_SOURCE[0]}")/utils.sh"
 
 install_apps() {
