@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-install_hypr() {
-  local hypr_list=(
+install_hypr_ecosystem() {
+  local hypr_package_list=(
     "hyprland"
     "hypridle"
     "hyprlock"
@@ -12,11 +12,13 @@ install_hypr() {
     "wayland-protocols"
     "xorg-xwayland"
   )
-  local packages=("${hypr_list[@]}" "${dependencies[@]}")
 
-  sudo pacman -S --noconfirm --needed "${packages[@]}"
+  local combined_packages=("${hypr_package_list[@]}" "${dependencies[@]}")
+
+  sudo pacman -S --noconfirm --needed "${combined_packages[@]}"
 }
 
-install_hypr
+install_hypr_ecosystem
 
+# shellcheck disable=2154
 ln -s "$script_dir/dotfiles/hypr" "$config_dir/hypr"

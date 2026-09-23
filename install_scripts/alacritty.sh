@@ -9,4 +9,5 @@ install_alacritty() {
 
 install_alacritty
 
+# shellcheck disable=2154
 ln -s "$script_dir/dotfiles/alacritty" "$config_dir/alacritty"

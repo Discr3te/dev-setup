@@ -52,4 +52,5 @@ install_waybar() {
 
 install_waybar
 
+# shellcheck disable=2154
 ln -s "$script_dir/dotfiles/waybar" "$config_dir/waybar"

@@ -16,7 +16,7 @@ install_aur_helper() {
     makepkg -si --noconfirm
     popd || exit
   else
-    echo "yay already installed, skipping"
+    echo "AUR helper (yay) already installed."
   fi
 }
 

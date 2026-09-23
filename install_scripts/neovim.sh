@@ -18,4 +18,5 @@ install_neovim() {
 
 install_neovim
 
+# shellcheck disable=2154
 ln -s "$script_dir/dotfiles/nvim" "$config_dir/nvim"

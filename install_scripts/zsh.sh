@@ -17,7 +17,9 @@ remove_bash_config_files() {
 }
 
 sudo pacman -S --noconfirm --needed zsh
+
 hash -r
+
 sudo chsh -s "$(which zsh)" "$USER"
 
 sudo tee -a /etc/zsh/zshenv >/dev/null <<'EOF'
@@ -30,4 +32,7 @@ if [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
 fi
 EOF
 
+# shellcheck disable=2154
 ln -s "$script_dir/dotfiles/zsh" "$config_dir/zsh"
+
+remove_bash_config_files

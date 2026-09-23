@@ -14,4 +14,5 @@ install_dev() {
 
 install_dev
 
+# shellcheck disable=2154
 ln -s "$script_dir/dotfiles/git" "$config_dir/git"

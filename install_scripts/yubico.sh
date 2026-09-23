@@ -1,38 +1,22 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=2154
+source "$script_dir"/install_scripts/utils.sh
+
 install_yubico() {
-  local dependencies_list=(
+  local package_list=(
     "pam-u2f"
     "libfido2"
     "yubikey-manager"
     "yubikey-full-disk-encryption"
   )
 
-  local aur_dependencies_list=("yubico-authenticator")
-  local aur_dependencies=()
+  # shellcheck disable=2034
+  local aur_package_list=("yubico-authenticator")
 
-  if ! command yay --version &>/dev/null; then
-    echo "yay is not installed, installing now..."
-    bash ./aur_helper.sh
-  fi
+  install_aur_packages aur_package_list
 
-  for package in "${aur_dependencies_list[@]}"; do
-    if ! yay -Q "$package" &>/dev/null; then
-      aur_dependencies+=("$package")
-    fi
-  done
-  local yay_opts=(
-    -S
-    --noconfirm
-    --answerclean None
-    --answerupgrade None
-    --answerdiff None # Unsafe to set it to None. Change later
-    --answeredit None # Unsafe to set it to None. Change later
-  )
-
-  yay "${yay_opts[@]}" "${aur_dependencies[@]}"
-
-  sudo pacman -S --noconfirm --needed "${dependencies_list[@]}"
+  sudo pacman -S --noconfirm --needed "${package_list[@]}"
 }
 
 install_yubico
