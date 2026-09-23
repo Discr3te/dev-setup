@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-install_aur_helper_if_missing() {
+ensure_aur_helper_installed() {
   if ! command yay --version &>/dev/null; then
     # shellcheck disable=2154
     bash "$script_dir/install_scripts/aur_helper.sh"
@@ -8,6 +8,9 @@ install_aur_helper_if_missing() {
 }
 
 install_aur_packages() {
+
+  echo "install aur helper"
+  sleep 1
   local package aur_packages
   local -n aur_package_list_ref
 
@@ -20,7 +23,7 @@ install_aur_packages() {
     --answeredit None # Unsafe to set it to None. Change later
   )
 
-  install_aur_helper_if_missing
+  ensure_aur_helper_installed
 
   for package in "${aur_package_list_ref[@]}"; do
     if ! yay -Q "$package" &>/dev/null; then
