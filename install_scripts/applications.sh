@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-script_dir2="$(dirname "${BASH_SOURCE[0]}")"
 clear
-echo "$script_dir2"
+script_dir3="$(dirname "${BASH_SOURCE[1]}")"
+echo "1:$script_dir3"
+
+script_dir4="$(dirname "${BASH_SOURCE[2]}")"
+echo "2:$script_dir4"
 sleep 20
 
-source "$(dirname "${BASH_SOURCE[0]}")/utils.sh"
+script_dir2="$(dirname "${BASH_SOURCE[0]}")"
+source "$script_dir2/utils.sh"
 
 install_apps() {
   local application_list=(
