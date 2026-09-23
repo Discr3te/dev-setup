@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
 
-ensure_aur_helper_installed() {
-  if ! command yay --version &>/dev/null; then
-    # shellcheck disable=2154
-    bash "$script_dir/install_scripts/aur_helper.sh"
-  fi
-}
-
 install_aur_packages() {
-
   local -n aur_package_list_ref="$1"
   local package aur_packages
 
@@ -21,7 +13,10 @@ install_aur_packages() {
     --answeredit None # Unsafe to set it to None. Change later
   )
 
-  ensure_aur_helper_installed
+  if ! command yay --version &>/dev/null; then
+    # shellcheck disable=2154
+    bash "$script_dir/install_scripts/aur_helper.sh"
+  fi
 
   for package in "${aur_package_list_ref[@]}"; do
     if ! yay -Q "$package" &>/dev/null; then

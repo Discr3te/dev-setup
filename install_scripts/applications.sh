@@ -6,13 +6,13 @@ source "$script_dir/install_scripts/utils.sh"
 install_apps() {
   local application_list=(
     "firefox"
-    "pipewire-jack" # firefox dependency
-    "grim"          # screenshot
-    "slurp"         # screenshot
-    "satty"         # screenshot
-    "btop"
-    "powertop"
-    "rocm-smi-lib"      # btop amd gpu
+    "pipewire-jack"     # dependency: firefox
+    "grim"              # screenshot
+    "slurp"             # screenshot
+    "satty"             # screenshot
+    "powertop"          # power monitoring
+    "btop"              # recource monitoring
+    "rocm-smi-lib"      # dependency: btop
     "tlp"               # laptop battery saveings
     "mako"              # notification daemon
     "nautilus"          # file manager
