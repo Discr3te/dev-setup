@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# shellcheck disable=2154
-source ./utils.sh
+source "$(dirname "${BASH_SOURCE[0]}")/utils.sh"
 
 install_apps() {
   local application_list=(

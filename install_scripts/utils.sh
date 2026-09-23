@@ -9,10 +9,8 @@ ensure_aur_helper_installed() {
 
 install_aur_packages() {
 
-  echo "install aur helper"
-  sleep 1
+  local -n aur_package_list_ref="$1"
   local package aur_packages
-  local -n aur_package_list_ref
 
   local yay_opts=(
     -S
@@ -27,7 +25,7 @@ install_aur_packages() {
 
   for package in "${aur_package_list_ref[@]}"; do
     if ! yay -Q "$package" &>/dev/null; then
-      aur_packages_ref+=("$package")
+      aur_packages+=("$package")
     fi
   done
 
