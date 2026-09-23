@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=2154
-source "$script_dir"/install_scripts/utils.sh
+source "$script_dir/install_scripts/utils.sh"
 
 install_yubico() {
   local package_list=(

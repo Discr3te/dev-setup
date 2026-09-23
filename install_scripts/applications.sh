@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-clear
-script_dir3="$(dirname "${BASH_SOURCE[1]}")"
-echo "1:$script_dir3"
-
-script_dir4="$(dirname "${BASH_SOURCE[2]}")"
-echo "2:$script_dir4"
-sleep 20
-
-script_dir2="$(dirname "${BASH_SOURCE[0]}")"
-source "$script_dir2/utils.sh"
+# shellcheck disable=2154
+source "$script_dir/install_scripts/utils.sh"
 
 install_apps() {
   local application_list=(
