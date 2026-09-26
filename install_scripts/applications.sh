@@ -10,10 +10,8 @@ install_apps() {
     "grim"              # screenshot
     "slurp"             # screenshot
     "satty"             # screenshot
-    "powertop"          # power monitoring
     "btop"              # recource monitoring
     "rocm-smi-lib"      # dependency: btop
-    "tlp"               # laptop battery saveings
     "mako"              # notification daemon
     "nautilus"          # file manager
     "fuzzel"            # application launcher
